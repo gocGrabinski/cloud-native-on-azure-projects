@@ -22,8 +22,9 @@ public class App {
         });
 
         app.get("/factors/:number", ctx -> {
-            Integer numberToFactor = ctx.validatedPathParam("number").asInt().getOrThrow();
-            ctx.result("Factors for " + ctx.pathParam("number") + " will be returned here !");
+            Integer numberToFactor = ctx.validatedPathParam("number").asInt()
+                    .check(n -> (n.intValue() > 0) && (n.intValue() < 1000000)).getOrThrow();
+            ctx.json(ModuleOne.factorThisNumber(numberToFactor));
         });
     }
 }
