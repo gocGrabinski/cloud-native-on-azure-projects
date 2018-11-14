@@ -4,7 +4,7 @@ export function getHelloData(req) {
     var hellodata = {
         "Greeting": "Hello from Node.js.",
         "Version": process.version,
-        "IP-Address": os.networkInterfaces()["Local Area Connection"][1].address,
+        // "IP-Address": os.networkInterfaces()["Local Area Connection"][1].address,
         "Host": req.headers.host,
         "Timestamp": Date.now()
     }
@@ -24,8 +24,7 @@ export function factorThisNumber(number) {
 }
 
 export function getNumberToFactorFromUrl(url) {
-    var pattern = RegExp(/\/\d*/);
+    var pattern = RegExp(/\/factors\/(\d*)$/);
     var result = pattern.exec(url);
-    console.log(result);
-    return 1;
+    return parseInt(result[1]);
 }

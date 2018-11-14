@@ -20,5 +20,7 @@ test('getNumberToFactorFromUrl - /factors/1, /factors/22, /factors/333, /factors
     var expected = [1, 22, 333, 4444];
     urls.forEach((item, index) => {
         expect(mod.getNumberToFactorFromUrl(item)).toEqual(expected[index]);
+        // console.log(`Item: ${item} - Index ${index} - GetNumberToFactor ${mod.getNumberToFactorFromUrl(item)}`);
     });
+    // expect(true.toEqual(false));
 });
