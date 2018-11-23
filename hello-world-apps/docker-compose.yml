@@ -1,0 +1,12 @@
+version: '3'
+services:
+  pwa:
+    build: ./pwa
+    ports:
+     - "80:80"
+    # volumes:
+    #  - .:/code
+  hws-node:
+    build: ./node
+    ports:
+     - "7272:7272"
