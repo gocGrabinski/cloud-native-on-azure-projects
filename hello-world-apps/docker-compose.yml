@@ -10,3 +10,7 @@ services:
     build: ./node
     ports:
      - "7272:7272"
+  hws-java:
+    build: ./java/hello-world-demo
+    ports:
+     - "7000:7000"
