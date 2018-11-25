@@ -2,8 +2,8 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
     <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
-    <HelloWorldServices type="Node" domain="localhost:7272" />
-    <HelloWorldServices type="Java" domain="localhost:7070" />
+    <HelloWorldServices type="Node" uri="node" />
+    <HelloWorldServices type="Java" uri="java" />
   </div>
 </template>
 
