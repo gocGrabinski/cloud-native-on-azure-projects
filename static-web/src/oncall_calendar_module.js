@@ -17,4 +17,18 @@ function getDateStringForAprilYearDay(year, date) {
     return `April ${date}, ${year} 00:00:00`;
 }
 
-module.exports = getFirstTuesdayOfFiscalYear;
+function buildScheduleForFiscalYear(startDate) {
+    var schedule = [];
+    var begin = new Date();
+    begin.setDate(startDate.getDate());
+    var end = new Date();
+    end.setDate(begin.getDate() + 6);
+    for (i = 0; i < 52; i++) {
+        schedule.push({ "week": i + 1, "begins": begin, "ends": end });
+        begin.setDate(begin.getDate() + 7);
+        end.setDate(end.getDate() + 7);
+    }
+    return schedule;
+}
+
+module.exports = { getFirstTuesdayOfFiscalYear, buildScheduleForFiscalYear };
