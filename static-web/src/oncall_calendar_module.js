@@ -19,14 +19,12 @@ function getDateStringForAprilYearDay(year, date) {
 
 function buildScheduleForFiscalYear(startDate) {
     var schedule = [];
-    var begin = new Date();
-    begin.setDate(startDate.getDate());
-    var end = new Date();
-    end.setDate(begin.getDate() + 6);
+    var begindate = startDate;
+    var enddate = new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate() + 6);
     for (i = 0; i < 52; i++) {
-        schedule.push({ "week": i + 1, "begins": begin, "ends": end });
-        begin.setDate(begin.getDate() + 7);
-        end.setDate(end.getDate() + 7);
+        schedule.push({ "week": i + 1, "begins": begindate, "ends": enddate });
+        begindate = new Date(begindate.getFullYear(), begindate.getMonth(), begindate.getDate() + 7);
+        enddate = new Date(begindate.getFullYear(), begindate.getMonth(), begindate.getDate() + 6);
     }
     return schedule;
 }
