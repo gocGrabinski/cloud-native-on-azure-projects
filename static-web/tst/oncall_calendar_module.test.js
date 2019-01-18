@@ -5,6 +5,8 @@ var date2 = new Date('April 2, 2019 00:00:00');
 var date3 = new Date('April 7, 2015 00:00:00');
 var date4 = new Date('April 6, 2021 00:00:00');
 var date5 = new Date('April 4, 2023 00:00:00');
+var date6 = new Date('April 1, 2019 00:00:00');
+
 test('Parameter 2018 expected to return date of April 3, 2018 00:00:00', () => {
     expect(oncallCalendarModule.getFirstTuesdayOfFiscalYear(2018)).toEqual(date1);
 });
@@ -21,13 +23,11 @@ test('Parameter 2023 expected to return date of April 4, 2023 00:00:00', () => {
     expect(oncallCalendarModule.getFirstTuesdayOfFiscalYear(2023)).toEqual(date5);
 });
 
-var date6 = new Date('April 1, 2019 00:00:00');
+//build schedule tests
+var schedule = oncallCalendarModule.buildScheduleForFiscalYear(date1);
 test('Parameter April 3, 2018  expected to return 52 week schedule ending on April 1, 2019', () => {
-    var schedule = oncallCalendarModule.buildScheduleForFiscalYear(date1);
     expect(schedule.length).toEqual(52);
     expect(schedule[0].week).toEqual(1);
     expect(schedule[51].week).toEqual(52);
     expect(schedule[51].ends).toEqual(date6);
-
-    console.log(schedule);
 });

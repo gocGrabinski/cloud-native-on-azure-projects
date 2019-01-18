@@ -1,3 +1,5 @@
+const onCallWeekClass = require('../src/oncallweek_class');
+
 function getFirstTuesdayOfFiscalYear(startInYear) {
     var date = 1;
     var aprilfirst = new Date(getDateStringForAprilYearDay(startInYear, date));
@@ -22,7 +24,7 @@ function buildScheduleForFiscalYear(startDate) {
     var begindate = startDate;
     var enddate = new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate() + 6);
     for (i = 0; i < 52; i++) {
-        schedule.push({ "week": i + 1, "begins": begindate, "ends": enddate });
+        schedule.push(new onCallWeekClass(i + 1, begindate, enddate));
         begindate = new Date(begindate.getFullYear(), begindate.getMonth(), begindate.getDate() + 7);
         enddate = new Date(begindate.getFullYear(), begindate.getMonth(), begindate.getDate() + 6);
     }
